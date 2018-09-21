@@ -169,15 +169,28 @@
         squareVertexPositionBuffer = gl.createBuffer()
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer)
         vertices = [
-          1.0,  1.0,  0.0,
-          -1.0, 1.0,  0.0,
-          -1.0, -1.0, 0.0,
-          1.0, -1.0, 0.0,
-          1.0, 1.0, 0.0
+          2.0, 2.0, 2.0,
+          2.0, -2.0, 2.0,
+          2.0, -2.0, -2.0,
+          2.0, 2.0, -2.0,
+          -2.0, 2.0, -2.0,
+          -2.0, -2.0, -2.0,
+          -2.0, -2.0, 2.0,
+          -2.0, 2.0, 2.0,
+          2.0, 2.0, 2.0,
+          2.0, 2.0, -2.0,
+          -2.0, 2.0, -2.0,
+          -2.0, 2.0, 2.0,
+          -2.0, -2.0, 2.0,
+          2.0, -2.0, 2.0,
+          2.0, -2.0, -2.0,
+          -2.0, -2.0, -2.0,
+          -2.0, -2.0, 2.0
+
         ]
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW)
         squareVertexPositionBuffer.itemSize = 3
-        squareVertexPositionBuffer.numItems = 5
+        squareVertexPositionBuffer.numItems = 17
         // Square Color
         squareVertexColorBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexColorBuffer);
@@ -207,7 +220,7 @@
         setMatrixUniforms()
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, triangleVertexPositionBuffer.numItems)
         mvPopMatrix()
-        mat4.translate(mvMatrix, mvMatrix, [0.0, 0.0, -10.0])
+        mat4.translate(mvMatrix, mvMatrix, [0.0, -4.0, -10.0])
         mvPushMatrix()
         mat4.rotate(mvMatrix, mvMatrix, glMatrix.toRadian(rSquare), [0.0, 0.0, 0.0])
         //mat4.rotateX(mvMatrix, mvMatrix, glMatrix.toRadian(rSquare))
@@ -216,7 +229,7 @@
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexColorBuffer)
         gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, squareVertexColorBuffer.itemSize, gl.FLOAT, false, 0, 0)
         setMatrixUniforms()
-        gl.drawArrays(gl.LINE_LOOP, 0, squareVertexPositionBuffer.numItems)
+        gl.drawArrays(gl.LINE_STRIP, 0, squareVertexPositionBuffer.numItems)
         mvPopMatrix()
       }
       var lastTime = 0
