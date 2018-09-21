@@ -171,17 +171,18 @@
         vertices = [
           1.0,  1.0,  0.0,
           -1.0, 1.0,  0.0,
-          1.0,  -1.0, 0.0,
-          -1.0, -1.0, 0.0
+          -1.0, -1.0, 0.0,
+          1.0, -1.0, 0.0,
+          1.0, 1.0, 0.0
         ]
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW)
         squareVertexPositionBuffer.itemSize = 3
-        squareVertexPositionBuffer.numItems = 4
+        squareVertexPositionBuffer.numItems = 5
         // Square Color
         squareVertexColorBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexColorBuffer);
         colors = [];
-        for (var i=0; i < 4; i++) {
+        for (var i=0; i < squareVertexPositionBuffer.numItems; i++) {
             colors = colors.concat([0.0, 1.0, 1.0, 1.0]);
         }
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
