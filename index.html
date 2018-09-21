@@ -215,7 +215,7 @@
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexColorBuffer)
         gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, squareVertexColorBuffer.itemSize, gl.FLOAT, false, 0, 0)
         setMatrixUniforms()
-        gl.drawArrays(gl.LINE_STRIP, 0, squareVertexPositionBuffer.numItems)
+        gl.drawArrays(gl.LINE_LOOP, 0, squareVertexPositionBuffer.numItems)
         mvPopMatrix()
       }
       var lastTime = 0
