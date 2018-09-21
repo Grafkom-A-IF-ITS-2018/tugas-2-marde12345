@@ -211,7 +211,7 @@
         mat4.identity(mvMatrix)
         mat4.translate(mvMatrix, mvMatrix, [0.0, 1.0, -20.0])
         mvPushMatrix()
-        mat4.rotate(mvMatrix, mvMatrix, glMatrix.toRadian(rTri), [0.0, 0.0, 0.0])
+        mat4.rotate(mvMatrix, mvMatrix, glMatrix.toRadian(rTri), [-1.0, 1.0, 1.0])
         //mat4.rotateY(mvMatrix, mvMatrix, glMatrix.toRadian(rTri))
         gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer)
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, triangleVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0)
